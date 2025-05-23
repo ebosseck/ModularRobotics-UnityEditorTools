@@ -538,9 +538,7 @@ namespace EditorTools.InspectorTools
                 {
                     names += (pi.Name + ", ");
                 }
-
-                Debug.LogWarning("Field not Found: " + propertyName + ", Available: " + names);
-
+                
                 return null;
             }
 

@@ -107,6 +107,13 @@ namespace EditorTools.MeshGenerator
             
 #else
             mesh = filter.mesh;
+            if (mesh == null)
+            {
+                mesh = new Mesh();
+                mesh.name = "RopeMesh";
+                filter.sharedMesh = mesh;
+                filter.sharedMesh.RecalculateBounds();
+            }
 #endif
         }
         
@@ -225,7 +232,7 @@ namespace EditorTools.MeshGenerator
         public Matrix4x4 rotationFromDir(Vector3 direction)
         {
             Quaternion rot = Quaternion.FromToRotation(new Vector3(0, 1, 0), direction);
-            Matrix4x4 ret = Matrix4x4.Rotate(new Quaternion(rot.z, rot.y, rot.x, rot.w));
+            Matrix4x4 ret = Matrix4x4.Rotate(new Quaternion(rot.x, rot.y, rot.z, rot.w));
             return ret;
         }
         

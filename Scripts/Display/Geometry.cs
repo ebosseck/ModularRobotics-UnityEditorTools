@@ -132,6 +132,34 @@ namespace EditorTools.Display
         }
 
         #endregion
+
+        #region Line
+
+        /// <summary>
+        /// Draws a wireframe box in UnityEditor
+        /// </summary>
+        /// <param name="origin">Origin point of the box</param>
+        /// <param name="dimensions">Dimensions of the box</param>
+        /// <param name="offset">Offset in local coordinates from the object's origin, defaults to (0,0,0)</param>
+        /// <param name="color">Color of the lines</param>
+        public static void drawLine(Transform origin, Vector3 start, Vector3 end, Color? color = null)
+        {
+            
+            
+            Color dcolor = Color.white;
+            if (color != null)
+            {
+                dcolor = (Color) color;
+            }
+
+            Vector3 p00 = origin.TransformPoint(start);
+            Vector3 p01 = origin.TransformPoint(end);
+
+
+            Debug.DrawLine(p00, p01, dcolor);
+        }
+
+        #endregion
         
         #region Box
         /// <summary>
